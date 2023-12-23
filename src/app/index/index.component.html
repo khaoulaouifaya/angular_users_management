@@ -1,0 +1,39 @@
+
+<div id="users-tab">
+    <h4>Manage users</h4>
+    <br>
+    <button class="btn btn-primary">add user</button>
+    <br>
+    
+<div class="container mt-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"># ID</th>
+        <th scope="col">Icon</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <th scope="row">{{ item.id }}</th>
+        <td><img [src]="item.icon" alt="Icon" class="img-fluid icon-image"></td>
+        <td>{{ item.firstName }}</td>
+        <td>{{ item.lastName }}</td>
+        <td>{{ item.email }}</td>
+        <td>
+          <!-- Add your action buttons or links here -->
+          <button class="btn btn-primary actions-btn" (click)="editItem(item)">Edit</button>
+          <span class="mx-2"></span> <!-- Ajouter un espace horizontal -->
+          <button class="btn btn-danger" (click)="deleteItem(item)">Delete</button>
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
