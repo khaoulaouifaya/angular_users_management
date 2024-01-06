@@ -1,5 +1,6 @@
 // index.service.ts
 import { Injectable } from '@angular/core';
+import { ItemsList } from '@ng-select/ng-select/lib/items-list';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,15 @@ export class UsersService {
   deleteItem(itemId: number) {
     this.data = this.data.filter(element => element.idUser !== itemId);
     return this.data ;
+  }
+
+  updateItem(item: any){
+    var result = this.data.find(element => element.idUser === item.idUser);
+    if(result){
+      result.firstName = "updated name"
+      result.lastName = "updated last name"
+      console.log("user result" , result);
+    }
   }
 
   

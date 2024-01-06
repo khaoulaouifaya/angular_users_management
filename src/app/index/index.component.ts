@@ -17,13 +17,13 @@ export class IndexComponent {
 
   ngOnInit() {
     this.userService.deleteItem
+    this.userService.updateItem
   }
 
   data = this.userService.data;
 
   editItem(item: any) {
-    this.userService.deleteItem(item);
-    console.log('Edit item:', item);
+    this.userService.updateItem(item);
   }
 
   deleteItem(item: number) {
