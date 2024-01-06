@@ -19,7 +19,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of data">
-        <th scope="row">{{ item.id }}</th>
+        <th scope="row">{{ item.idUser }}</th>
         <td><img [src]="item.icon" alt="Icon" class="img-fluid icon-image"></td>
         <td>{{ item.firstName }}</td>
         <td>{{ item.lastName }}</td>
@@ -28,7 +28,7 @@
           <!-- Add your action buttons or links here -->
           <button class="btn btn-primary actions-btn" (click)="editItem(item)">Edit</button>
           <span class="mx-2"></span> <!-- Ajouter un espace horizontal -->
-          <button class="btn btn-danger" (click)="deleteItem(item)">Delete</button>
+          <button class="btn btn-danger" (click)="deleteItem(item.idUser)">Delete</button>
         </td>
         
       </tr>

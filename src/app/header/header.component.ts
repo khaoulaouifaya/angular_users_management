@@ -1,11 +1,12 @@
 import { Component ,ViewEncapsulation} from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FormsModule , NgSelectModule],
+  imports: [FormsModule , NgSelectModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
   encapsulation: ViewEncapsulation.None

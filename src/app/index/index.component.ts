@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CommonModule } from '@angular/common';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-index',
@@ -12,27 +13,21 @@ import { CommonModule } from '@angular/common';
 })
 export class IndexComponent {
 
-  data = [
-    { id: 1, icon: './assets/img/men.jpeg', firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
-    { id: 2, icon: './assets/img/men1.jpeg', firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com' },
-    { id: 1, icon: './assets/img/men3.jpeg', firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
-    { id: 2, icon: './assets/img/men.jpeg', firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com' },
-    { id: 1, icon: './assets/img/men1.jpeg', firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
-    { id: 2, icon: './assets/img/men3.jpeg', firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com' },
-    { id: 2, icon: './assets/img/men.jpeg', firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com' },
-    { id: 1, icon: './assets/img/men1.jpeg', firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
-    { id: 2, icon: './assets/img/men3.jpeg', firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com' },
-    { id: 2, icon: './assets/img/men.jpeg', firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com' },
-    { id: 1, icon: './assets/img/men1.jpeg', firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
-  ];
+  constructor(private userService: UsersService){}
+
+  ngOnInit() {
+    this.userService.deleteItem
+  }
+
+  data = this.userService.data;
 
   editItem(item: any) {
-    // Add logic for editing the item
+    this.userService.deleteItem(item);
     console.log('Edit item:', item);
   }
 
-  deleteItem(item: any) {
-    // Add logic for deleting the item
+  deleteItem(item: number) {
+    this.data = this.userService.deleteItem(item);
     console.log('Delete item:', item);
   }
 
