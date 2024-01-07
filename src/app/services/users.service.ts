@@ -1,12 +1,13 @@
 // index.service.ts
 import { Injectable } from '@angular/core';
-import { ItemsList } from '@ng-select/ng-select/lib/items-list';
+import { User } from '../models/User';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-    data = [
+ data: User[] = [
         { idUser: 1, icon: './assets/img/men.jpeg', firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
         { idUser: 2, icon: './assets/img/men1.jpeg', firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com' },
         { idUser: 3, icon: './assets/img/men3.jpeg', firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
@@ -29,12 +30,12 @@ export class UsersService {
     return this.data ;
   }
 
-  updateItem(item: any){
-    var result = this.data.find(element => element.idUser === item.idUser);
-    if(result){
-      result.firstName = "updated name"
-      result.lastName = "updated last name"
-      console.log("user result" , result);
+  updateItem(user: User){
+    var userResult = this.data.find(element => element.idUser === user.idUser);
+    if(userResult){
+      userResult.firstName = user.firstName
+      userResult.lastName = user.lastName
+      console.log("user result" , userResult);
     }
   }
 
