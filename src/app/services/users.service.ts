@@ -21,7 +21,7 @@ export class UsersService {
         { idUser: 11, icon: './assets/img/men1.jpeg', firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
       ];
 
-  addUser(user: any) {
+  addUser(user: User) {
     this.data.push(user);
   }
 
@@ -31,12 +31,6 @@ export class UsersService {
   }
 
   updateItem(user: User){
-    var userResult = this.data.find(element => element.idUser === user.idUser);
-    if(userResult){
-      userResult.firstName = user.firstName
-      userResult.lastName = user.lastName
-      console.log("user result" , userResult);
-    }
   }
 
   

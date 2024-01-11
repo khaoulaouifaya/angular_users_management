@@ -4,6 +4,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { CommonModule } from '@angular/common';
 import { User } from '../models/User';
 import { UsersService } from '../services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -14,7 +15,7 @@ import { UsersService } from '../services/users.service';
 })
 export class IndexComponent {
 
-  constructor(private userService: UsersService){}
+  constructor(private userService: UsersService, private router:Router){}
 
   ngOnInit() {
     this.userService.deleteItem
@@ -23,8 +24,9 @@ export class IndexComponent {
 
   data = this.userService.data;
 
-  editItem(item: any) {
-    this.userService.updateItem(item);
+  updateUser(userId: number) {
+    let user= this.data.find(element=> element.idUser == userId)
+    this.router.navigate(['/update'])
   }
 
   deleteItem(item: number) {

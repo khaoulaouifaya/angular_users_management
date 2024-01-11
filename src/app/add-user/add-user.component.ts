@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { IndexComponent } from '../index/index.component';
 import { UsersService } from '../services/users.service';
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-add-user',
@@ -12,13 +13,30 @@ import { UsersService } from '../services/users.service';
   styleUrl: './add-user.component.css'
 })
 export class AddUserComponent {
-   userId: any;
+   userId!: any;
    firstName!: any;
+   icon!: any;
    lastName!: any;
    email!: any;
 
-   addUser(params:any) {
-    
+   constructor(private userService: UsersService){}
+
+   ngOnInit(){
+    this.userService.addUser
+   }
+
+   addUser() {
+    let user: User = new User(1,this.icon,this.firstName,this.lastName,this.email);
+    this.userService.addUser(user);
+    this.clear;
+   }
+   
+   clear(){
+   this.userId=null;
+   this.firstName="";
+   this.icon="";
+   this.lastName="";
+   this.email="";
    }
 
    

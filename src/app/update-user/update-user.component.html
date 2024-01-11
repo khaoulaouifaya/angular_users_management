@@ -1,23 +1,22 @@
 <div class="container dv">
-    <h2>Update</h2>
-    <form onsubmit="addUser()">
-      <div class="mb-3">
-        <label for="userId" class="form-label">User ID</label>
-        <input type="text" class="form-control" id="userId" [(ngModel)]="idUser" required>
-      </div>
-      <div class="mb-3">
-        <label for="firstName" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="firstName"  [(ngModel)]="firstName" required>
-      </div>
-      <div class="mb-3">
-        <label for="lastName" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="lastName" [(ngModel)]="lastName" required>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email Address</label>
-        <input type="email" class="form-control" id="email" [(ngModel)]="email" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Update User</button>
-    </form>
-  </div>
-  
+  <h2>Add User</h2>
+  <form (submit)="updateUser()">
+    <div class="mb-3">
+      <label for="userId" class="form-label">User ID</label>
+      <input type="text" class="form-control" id="userId" name="userId" [(ngModel)]="userId" required>
+    </div>
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="firstName" name="firstName"  [(ngModel)]="firstName" required>
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" class="form-control" id="email" name="lastName" [(ngModel)]="email" required>
+    </div>
+    <button type="submit" class="btn btn-success">update</button>
+  </form>
+</div>

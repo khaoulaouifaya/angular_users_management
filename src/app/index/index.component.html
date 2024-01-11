@@ -26,7 +26,7 @@
         <td>{{ item.email }}</td>
         <td>
           <!-- Add your action buttons or links here -->
-          <button class="btn btn-primary actions-btn" (click)="editItem(item)">Edit</button>
+          <button class="btn btn-primary actions-btn" (click)="updateUser(item.idUser)">update</button>
           <span class="mx-2"></span> <!-- Ajouter un espace horizontal -->
           <button class="btn btn-danger" (click)="deleteItem(item.idUser)">Delete</button>
         </td>
