@@ -9,7 +9,7 @@ export const routes: Routes = [
     { path: 'users', component: IndexComponent },
     { path: '', component: IndexComponent },
     { path: 'add', component: AddUserComponent },
-    { path: 'update', component: UpdateUserComponent },
+    { path: 'update/:id', component: UpdateUserComponent },
     { path: '**', component: NotfoundComponent } // Route wildcard pour les URL non définies
 ];
 

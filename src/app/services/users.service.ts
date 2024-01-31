@@ -20,9 +20,16 @@ export class UsersService {
         { idUser: 10, icon: './assets/img/men.jpeg', firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com' },
         { idUser: 11, icon: './assets/img/men1.jpeg', firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
       ];
+  
+    
+      resutl: any;
 
   addUser(user: User) {
     this.data.push(user);
+  }
+
+  findUser(userId: number){
+   return this.data.find(user => user.idUser == userId);
   }
 
   deleteItem(itemId: number) {
@@ -31,6 +38,11 @@ export class UsersService {
   }
 
   updateItem(user: User){
+    this.resutl = this.findUser(user.idUser);
+    this.resutl.firstName = user.firstName;
+    this.resutl.lastName = user.lastName;
+    this.resutl.email = user.email;
+    this.resutl.icon = user.icon;
   }
 
   

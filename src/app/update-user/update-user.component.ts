@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { UsersService } from '../services/users.service';
+import { User } from '../models/User';
 @Component({
   selector: 'app-update-user',
   standalone: true,
@@ -11,26 +12,31 @@ import { UsersService } from '../services/users.service';
 })
 export class UpdateUserComponent {
 
-  //@Input() user!: User;
-  //userId: any = this.user.idUser;
-  //firstName: any= this.user.firstName;
-  //icon: any = this.user.icon;
-  //lastName: any = this.user.lastName ;
-  //email: any = this.user.email;
+  user: User;
+  userId: any ;
+  result:any;
 
-  userId!: any;
-  firstName!: any;
-  icon!: any;
-  lastName!: any;
-  email!: any;
-
-  constructor(private userService: UsersService){}
-
-  ngOnInit(){
-   this.userService.updateItem
+  constructor(private userService: UsersService,private route:ActivatedRoute, private router: Router){
+    this.userId = this.route.snapshot.paramMap.get('id');
+    this.result = this.userService.findUser(this.userId);
+    this.user = new User(
+      this.userId,
+      this.result?.icon,
+      this.result?.firstName,
+      this.result?.lastName,
+      this.result?.email);
   }
-  updateUser(){
 
+
+  updateUser(user: User){
+    this.user = new User(
+      user.idUser,
+      user.icon,
+      user.firstName,
+      user.lastName,
+      user.email);
+    this.userService.updateItem(this.user);
+    this.router.navigate(['']);
   }
 
 }

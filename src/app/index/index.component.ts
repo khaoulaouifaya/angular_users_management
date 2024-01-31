@@ -1,8 +1,5 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
+import { Component, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { User } from '../models/User';
 import { UsersService } from '../services/users.service';
 import { Router } from '@angular/router';
 
@@ -25,8 +22,7 @@ export class IndexComponent {
   data = this.userService.data;
 
   updateUser(userId: number) {
-    let user= this.data.find(element=> element.idUser == userId)
-    this.router.navigate(['/update'])
+    this.router.navigate(['/update',userId])
   }
 
   deleteItem(item: number) {
