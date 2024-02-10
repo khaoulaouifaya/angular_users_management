@@ -24,6 +24,9 @@ export class IndexComponent {
   updateUser(userId: number) {
     this.router.navigate(['/update',userId])
   }
+  chckoutAddUser(){
+    this.router.navigate(['add']);
+  }
 
   deleteItem(item: number) {
     this.data = this.userService.deleteItem(item);
